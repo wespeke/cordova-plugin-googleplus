@@ -109,6 +109,7 @@ public class GooglePlus extends CordovaPlugin implements ConnectionCallbacks, On
       result.put("email", email);
       // in case there was no internet connection, this may be null
       if (user != null) {
+        result.put("connectionHint", connectionHint),
         result.put("userId", user.getId());
         result.put("displayName", user.getDisplayName());
         result.put("gender", getGender(user.getGender()));
@@ -119,6 +120,7 @@ public class GooglePlus extends CordovaPlugin implements ConnectionCallbacks, On
           result.put("givenName", user.getName().getGivenName());
           result.put("middleName", user.getName().getMiddleName());
           result.put("familyName", user.getName().getFamilyName());
+          result.put("language", user.getLanguage());
           if (user.hasAgeRange()) {
             if (user.getAgeRange().hasMin()) {
               result.put("ageRangeMin", user.getAgeRange().getMin());
